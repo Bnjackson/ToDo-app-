@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 /*
 CSS Reset
 */
-
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -16,4 +17,56 @@ html, body {
 
 ol, ul {
     list-style: none;
+}
+
+/*
+GENERAL STYLES
+*/
+html {
+    background-color: #222222;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*
+TODO SECTION
+*/
+#todo-wrapper {
+    background-color: #F2F2F2;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+#input-wrapper {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#task-input {
+    width: 80%;
+    height: 2.2rem;
+    font-size: 1rem;
+}
+
+#task-submit {
+    height: 2.2rem;
+    background-color: #222222;
+    color: #F2F2F2;
+}
+
+#controls-wrapper {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 0.5rem;
+}
+
+.selected {
+    text-decoration: underline;
+}
+
+.controls {
+    cursor: pointer;
 }
