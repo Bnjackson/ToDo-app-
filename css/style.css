@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 /*
 CSS Reset
@@ -50,6 +50,11 @@ TODO SECTION
     font-size: 1rem;
 }
 
+#task-input::placeholder {
+    opacity: 0.7;
+    padding: 0.1rem;
+}
+
 #task-submit {
     height: 2.2rem;
     background-color: #222222;
@@ -60,7 +65,7 @@ TODO SECTION
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid lightgrey;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.7rem;
 }
 
 .selected {
@@ -69,4 +74,13 @@ TODO SECTION
 
 .controls {
     cursor: pointer;
+}
+
+.task-wrapper {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.task {
+
 }
