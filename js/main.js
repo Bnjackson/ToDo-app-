@@ -1,6 +1,13 @@
+/*
+ARRAYS
+*/
 const allTasks = [];
 const uncompletedTasks = [];
 const completedTasks = [];
+
+/* 
+TASK INPUT, SUBMIT AND CREATE TASK
+*/
 const allTasksContainer = document.getElementById('all-tasks');
 const uncompletedTasksContainer = document.getElementById('uncompleted-tasks');
 const completedTasksContainer = document.getElementById('completed-tasks');
@@ -20,18 +27,6 @@ document.getElementById('task-submit').addEventListener('click', () => {
     }
 })
 
-function clearTasks() {
-    while (allTasksContainer.firstChild) {
-        allTasksContainer.removeChild(allTasksContainer.firstChild);
-    }
-    while (uncompletedTasksContainer.firstChild) {
-        uncompletedTasksContainer.removeChild(uncompletedTasksContainer.firstChild);
-    }
-    while (completedTasksContainer.firstChild) {
-        completedTasksContainer.removeChild(completedTasksContainer.firstChild);
-    }
-}
-
 function createTask() {
     let newTask = document.createElement('span');
     let taskWrapper = document.createElement('div');
@@ -47,8 +42,26 @@ function createTask() {
     }
 }
 
-
+/*
+CLEAR TASKS
+*/
 const clearButton = document.getElementById('clear-btn');
+
+function clearTasks() {
+    while (allTasksContainer.firstChild) {
+        allTasksContainer.removeChild(allTasksContainer.firstChild);
+    }
+    while (uncompletedTasksContainer.firstChild) {
+        uncompletedTasksContainer.removeChild(uncompletedTasksContainer.firstChild);
+    }
+    while (completedTasksContainer.firstChild) {
+        completedTasksContainer.removeChild(completedTasksContainer.firstChild);
+    }
+}
+
+/* 
+SECTION SELECTOR
+*/
 const allSection = document.getElementById('all');
 const uncompletedSection = document.getElementById('uncompleted');
 const completedSection = document.getElementById('completed');
@@ -59,7 +72,7 @@ uncompletedSection.addEventListener('click', changeSection);
 completedSection.addEventListener('click', changeSection);
 
 function changeSection() {
-    if(event.target.id === 'all') {
+    if(event.target.id === 'all') { 
         allTasksContainer.style.display = 'block';
         uncompletedTasksContainer.style.display = 'none';
         completedTasksContainer.style.display = 'none';
