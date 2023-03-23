@@ -25,6 +25,7 @@ GENERAL STYLES
 html {
     background-color: #222222;
     font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
 }
 
 /*
@@ -47,18 +48,21 @@ TODO SECTION
 #task-input {
     width: 80%;
     height: 2.2rem;
-    font-size: 1rem;
 }
 
-#task-input::placeholder {
-    opacity: 0.7;
-    padding: 0.1rem;
+#task-input[type=text] {
+    padding: 0.1rem 0.5rem;
 }
 
-#task-submit {
-    height: 2.2rem;
+#task-submit{
+    height: 2.1rem;
     background-color: #222222;
     color: #F2F2F2;
+}
+
+#task-submit:hover {
+    background-color: #F2F2F2;
+    color: #222222;
 }
 
 #controls-wrapper {
@@ -69,11 +73,27 @@ TODO SECTION
 }
 
 .selected {
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 .controls {
     cursor: pointer;
+}
+
+.controls:hover {
+    text-decoration: underline;
+}
+
+#all-tasks {
+
+}
+
+#uncompleted-tasks {
+    display: none;
+}
+
+#completed-tasks {
+    display: none;
 }
 
 .task-wrapper {
