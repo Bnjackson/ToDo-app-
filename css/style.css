@@ -84,10 +84,6 @@ TODO SECTION
     text-decoration: underline;
 }
 
-#all-tasks {
-
-}
-
 #uncompleted-tasks {
     display: none;
 }
@@ -99,8 +95,23 @@ TODO SECTION
 .task-wrapper {
     padding: 0.7rem 0;
     border-bottom: 1px solid lightgrey;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
 }
 
 .task {
+    padding-left: 0.3rem;
+}
 
+.checkbox-wrapper {
+    display: inline;
+    margin: auto 0;
+    height: 1rem;
+    width: 1rem;
+}
+
+input[type="checkbox"] {
+    height: 1rem;
+    width: 1rem;
 }
