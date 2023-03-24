@@ -1,5 +1,5 @@
 /*
-ARRAYS
+SECTION ARRAYS
 */
 const allTasks = [];
 const uncompletedTasks = [];
@@ -14,7 +14,7 @@ const completedTasksContainer = document.getElementById('completed-tasks');
 
 document.getElementById('task-submit').addEventListener('click', () => {
     let input = document.getElementById('task-input');
-    if(allTasks.length === 0) {
+    if(input.value && allTasks.length === 0) {
         clearTasks();
     }
     if(input.value) {
@@ -30,38 +30,34 @@ document.getElementById('task-submit').addEventListener('click', () => {
 function createTask() {
     let newTask = document.createElement('span');
     let taskWrapper = document.createElement('div');
+    let newCheckbox = createCheckbox();
     taskWrapper.classList.add('task-wrapper');
     newTask.classList.add('task');
     newTask.innerText = allTasks[allTasks.length - 1];
     displayTask();
     function displayTask() {
+        taskWrapper.append(newCheckbox);
         taskWrapper.append(newTask);
         allTasksContainer.append(taskWrapper);
         let taskWrapperClone = taskWrapper.cloneNode(true);
+        //Have to create a clone of taskWrapper as the original can only be appeneded to 1 container.
         uncompletedTasksContainer.append(taskWrapperClone);
     }
-}
-
-/*
-CLEAR TASKS
-*/
-const clearButton = document.getElementById('clear-btn');
-
-function clearTasks() {
-    while (allTasksContainer.firstChild) {
-        allTasksContainer.removeChild(allTasksContainer.firstChild);
-    }
-    while (uncompletedTasksContainer.firstChild) {
-        uncompletedTasksContainer.removeChild(uncompletedTasksContainer.firstChild);
-    }
-    while (completedTasksContainer.firstChild) {
-        completedTasksContainer.removeChild(completedTasksContainer.firstChild);
+    function createCheckbox () {
+        let checkboxWrapper = document.createElement('div');
+        checkboxWrapper.classList = 'checkbox-wrapper';
+        let checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.setAttribute('id', 'selected-checkbox');
+        checkboxWrapper.append(checkbox)
+        return checkboxWrapper;
     }
 }
 
 /* 
 SECTION SELECTOR
 */
+const clearButton = document.getElementById('clear-btn');
 const allSection = document.getElementById('all');
 const uncompletedSection = document.getElementById('uncompleted');
 const completedSection = document.getElementById('completed');
@@ -101,4 +97,30 @@ function changeSection() {
         }
         section.classList.add('selected');
     }
+}
+
+/*
+CLEAR CONTAINER SECTIONS
+*/
+function clearTasks() {
+    while (allTasksContainer.firstChild) {
+        allTasksContainer.removeChild(allTasksContainer.firstChild);
+    }
+    while (uncompletedTasksContainer.firstChild) {
+        uncompletedTasksContainer.removeChild(uncompletedTasksContainer.firstChild);
+    }
+    while (completedTasksContainer.firstChild) {
+        completedTasksContainer.removeChild(completedTasksContainer.firstChild);
+    }
+}
+
+/* 
+MOVE TASK FROM UNCOMPLETED TO COMPLETED 
+*/
+
+let checkbox = document.getElementById('completedCheckbox');
+console.log(checkbox);
+
+function addListenerToCheckbox () {
+    
 }
