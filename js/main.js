@@ -1,9 +1,9 @@
 /*
 SECTION ARRAYS
 */
-const allTasks = [];
-const uncompletedTasks = [];
-const completedTasks = [];
+let allTasks = [];
+let uncompletedTasks = [];
+let completedTasks = [];
 
 /* 
 TASK INPUT, SUBMIT AND CREATE TASK
@@ -47,8 +47,10 @@ function createTask() {
         let checkboxWrapper = document.createElement('div');
         checkboxWrapper.classList = 'checkbox-wrapper';
         let checkbox = document.createElement('input');
+        addListenerToCheckbox(checkbox);
         checkbox.type = "checkbox";
         checkbox.setAttribute('id', 'selected-checkbox');
+        checkbox.dataset.indexNumber = allTasks.length - 1;
         checkboxWrapper.append(checkbox)
         return checkboxWrapper;
     }
@@ -95,7 +97,6 @@ function changeSection() {
         } else if (section === 'completed') {
             completedSection.classList.add('selected');
         }
-        section.classList.add('selected');
     }
 }
 
@@ -112,15 +113,23 @@ function clearTasks() {
     while (completedTasksContainer.firstChild) {
         completedTasksContainer.removeChild(completedTasksContainer.firstChild);
     }
+    allTasks = [];
+    uncompletedTasks = [];
+    completedTasks = [];
 }
 
 /* 
 MOVE TASK FROM UNCOMPLETED TO COMPLETED 
 */
+function addListenerToCheckbox (checkbox) {
+    checkbox.addEventListener('change', function() {
+        if(this.checked) {
+            completedTasks.push(uncompletedTasks.splice(this.dataset.indexNumber, 1)[0]);
+            console.log(uncompletedTasks.splice(this.dataset.indexNumber, 1)[0]);
+            console.log(completedTasks, uncompletedTasks);
 
-let checkbox = document.getElementById('completedCheckbox');
-console.log(checkbox);
-
-function addListenerToCheckbox () {
-    
+        } else if (!this.checked){
+            console.log('Checkbox is unchecked');
+        }
+    });
 }
